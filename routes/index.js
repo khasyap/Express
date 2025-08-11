@@ -51,7 +51,7 @@ router.get("/lessthan",(req,res)=>{
 router.get("/sort",(req,res)=>{
   var{orderby,order}=req.query;
   var sortObj={[orderby]:order=="asc"?1:-1}
-  Products.find({},sort(sortObj))
+  Products.find({}).sort(sortObj)
   .then((data)=>res.send(data))
   .catch(()=>res.send({status:"Something went wrong"}))
 })
