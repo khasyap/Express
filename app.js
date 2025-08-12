@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+require('dotenv').config();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +32,7 @@ var port=4300;
 app.listen(port,()=>{
   console.log(`server is running on http://localhost:${port}`)
 })
-mongoose.connect('mongodb://localhost:27017/ecom')
+mongoose.connect(process.env.mongodburl)
 .then(()=>console.log("Successfully connected"))
 .catch((err)=>console.log(err))
 
