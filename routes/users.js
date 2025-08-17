@@ -46,7 +46,6 @@ router.post("/registration",(req,res)=>{
       //     console.log("Email send",+info)
       //   }
       // })
-
       var transporter=nodemailer.createTransport({
           service:'gmail',
           auth:{
